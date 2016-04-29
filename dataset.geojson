@@ -1,0 +1,48 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "9.205079",
+          "45.626687"
+        ]
+      },
+      "properties": {
+        "title": "SOCIETA’ DI SCHERMA",
+        "address": "via Santa Caterina 13",
+        "url": "https://facebook.com/scherma-1",
+        "e-mail": "scherma@commercianti.it",
+        "telephone": "+39 456 789123",
+        "category": "restaurant",
+        "uuid": "f36c0cdf-12de-46eb-a138-aad220eb4893",
+        "marker-symbol": "grocery",
+        "marker-color": "#22dd66",
+        "marker-size": "medium"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          "9.193961",
+          "45.618451"          ]
+      },
+      "properties": {
+        "title": "CENTRO RICREATIVO \"IL GIRASOLE\"",
+        "address": "VIA  S.PIETRO 14",
+        "url": "https://facebook.com/scherma-1",
+        "e-mail": "ilgirasole@commercianti.it",
+        "telephone": "+39 123 456789",
+        "category": "bar",
+        "uuid": "5b9eca57-fe78-4528-bb34-4f23d802c270",
+        "marker-symbol": "heart",
+        "marker-color": "#E56C69",
+        "marker-size": "medium"
+      }
+    }
+  ]
+}
