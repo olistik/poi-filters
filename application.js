@@ -28,6 +28,8 @@
     }
   }
 
+  function isPresent(string) {
+    return string !== undefined && string !== null && string.length > 0;
   }
 
   function fetchDataset(datasetUrl, callback) {
@@ -46,11 +48,20 @@
       var feature = marker.feature;
 
       var content = "";
-      content += feature.properties.title + "<br />";
-      content += "Indirizzo: " + feature.properties.address + "<br />";
-      content += "URL: " + "<a href=\"" + feature.properties.url + "\">" + feature.properties.url + "</a><br />";
-      content += "e-mail: " + "<a href=\"mailto:" + feature.properties["e-mail"] + "\">" + feature.properties["e-mail"] + "</a><br />";
-      content += "Tel. " + "<a href=\"call:" + feature.properties.telephone + "\">" + feature.properties.telephone + "</a><br />";
+      content += "<strong>" + feature.properties.title + "</strong><br />";
+
+      if (isPresent(feature.properties.address)) {
+        content += "Indirizzo: " + feature.properties.address + "<br />";
+      }
+      if (isPresent(feature.properties.url)) {
+        content += "URL: " + "<a href=\"" + feature.properties.url + "\">" + feature.properties.url + "</a><br />";
+      }
+      if (isPresent(feature.properties["e-mail"])) {
+        content += "e-mail: " + "<a href=\"mailto:" + feature.properties["e-mail"] + "\">" + feature.properties["e-mail"] + "</a><br />";
+      }
+      if (isPresent(feature.properties.telephone)) {
+        content += "Tel. " + "<a href=\"call:" + feature.properties.telephone + "\">" + feature.properties.telephone + "</a><br />";
+      }
 
       marker.bindPopup(content, {
         closeButton: false,
