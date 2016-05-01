@@ -1,5 +1,3 @@
-// marker icons: https://www.mapbox.com/maki-icons
-
 (function() {
 
   var filters = null;
