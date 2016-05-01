@@ -28,33 +28,6 @@
     }
   }
 
-  function setMarkers(map, json) {
-    for (feature of json.features) {
-      L.mapbox.featureLayer(feature).addTo(map);
-    }
-
-    // L.geoJson(json, {
-    //   // pointToLayer: L.mapbox.marker.style,
-    //   style: function(feature) {
-    //     return {
-    //       "marker-color": feature.properties["marker-color"],
-    //       "marker-symbol": feature.properties["marker-symbol"]
-    //     }
-    //   },
-    //   onEachFeature: function (feature, layer) {
-    //     var content = "";
-    //     content += feature.properties.title + "<br />";
-    //     content += "Indirizzo: " + feature.properties.address + "<br />";
-    //     content += "URL: " + "<a href=\"" + feature.properties.url + "\">" + feature.properties.url + "</a><br />";
-    //     content += "e-mail: " + "<a href=\"mailto:" + feature.properties["e-mail"] + "\">" + feature.properties["e-mail"] + "</a><br />";
-    //     content += "Tel. " + "<a href=\"call:" + feature.properties.telephone + "\">" + feature.properties.telephone + "</a><br />";
-    //     layer.bindPopup(content);
-    //   }
-    // }).addTo(map);
-
-    // console.debug(filters);
-    // filters.addEventListener("change", change);
-    // change();
   }
 
   function fetchDataset(datasetUrl, callback) {
