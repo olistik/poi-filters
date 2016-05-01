@@ -139,7 +139,7 @@
     featureLayer = L.mapbox.featureLayer();
     featureLayer.addTo(map);
 
-    var datasetUrl = "https://raw.githubusercontent.com/olistik/poi-filters/master/dataset.geojson";
+    var datasetUrl = "https://github.com/olistik/poi-filters/blob/gh-pages/dataset.geojson";
     fetchDataset(datasetUrl, function(json) {
       geojsonData = json;
       featureLayer.setGeoJSON(geojsonData);
