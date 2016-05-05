@@ -29,3 +29,5 @@ The schema for the `properties` is the following:
   "marker-size": "medium"             // required *
 }
 ```
+
+For a list of the available marker symbols, check the [Maki Icons List repository](https://github.com/olistik/maki-icons-list).
