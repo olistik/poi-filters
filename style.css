@@ -25,14 +25,14 @@ html, body {
 }
 
 .map-viewer .map {
-  flex: 4;
+  flex: 11;
   border-right: 2px solid #ccc;
 }
 
 .map-viewer .categories-picker {
-  min-width: 200px;
-  flex: 1;
+  min-width: 120px;
   padding: 1rem;
+  border-bottom: 2px solid #ccc;
 }
 
 .categories-picker > div {
@@ -45,4 +45,29 @@ html, body {
 
 .categories-picker label {
 
+}
+
+.map-viewer .results {
+  padding: 0;
+  list-style-type: none;
+}
+
+.map-viewer .results li {
+  border-bottom: 1px solid #ccc;
+  padding: 1rem;
+}
+
+.map-viewer .results li:first-child {
+  padding-top: 0;
+}
+
+.map-viewer .results li:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.categories-results {
+  min-width: 300px;
+  overflow-y: scroll;
+  height: 100%;
 }

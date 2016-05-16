@@ -5,6 +5,7 @@
   var map = null;
   var geojsonData = {};
   var featureLayer = null;
+  var resultsContainer = null;
 
   var mapboxSettings = {
     accessToken: "pk.eyJ1Ijoib2xpc3RpayIsImEiOiJjaW03a2lvd2MwMDBsdzhtNTZzeG9pYzFsIn0.EnuMVTEKyFfJN6XZhtLmIA",
@@ -88,6 +89,52 @@
       });
       map.setZoom(viewSettings.zoomLevel);
     }
+    updateList();
+  }
+
+  function buildHTMLFeature(feature) {
+    var node = document.createElement("li");
+    var content = "";
+    content += "<strong>" + feature.properties.title + "</strong><br />";
+
+    if (isPresent(feature.properties.address)) {
+      content += "Indirizzo: " + feature.properties.address + "<br />";
+    }
+    if (isPresent(feature.properties.url)) {
+      content += "URL: " + "<a href=\"" + feature.properties.url + "\">Web site</a><br />";
+    }
+    if (isPresent(feature.properties["e-mail"])) {
+      content += "e-mail: " + "<a href=\"mailto:" + feature.properties["e-mail"] + "\">E-mail</a><br />";
+    }
+    if (isPresent(feature.properties.telephone)) {
+      content += "Tel. " + "<a href=\"call:" + feature.properties.telephone + "\">" + feature.properties.telephone + "</a><br />";
+    }
+    node.innerHTML = content;
+    return node;
+  }
+
+  function updateList() {
+    var enabled = {};
+    for (var i = 0; i < checkboxes.length; i++) {
+      if (checkboxes[i].checked) {
+        enabled[checkboxes[i].id] = true;
+      }
+    }
+
+    var visibleFeatures = [];
+    for (var index = 0; index < geojsonData.features.length; ++index) {
+      var feature = geojsonData.features[index];
+      if (feature.properties.category in enabled) {
+        visibleFeatures.push(feature);
+      }
+    }
+
+    resultsContainer.innerHTML = "";
+    for (var index = 0; index < visibleFeatures.length; ++index) {
+      var feature = visibleFeatures[index];
+      var htmlContent = buildHTMLFeature(feature);
+      resultsContainer.appendChild(htmlContent);
+    }
   }
 
   function createFilters() {
@@ -144,6 +191,7 @@
       map.fitBounds(featureLayer.getBounds());
       createCustomTooltips();
       createFilters();
+      updateList();
     });
 
     // callback fired when a marker gets clicked
@@ -156,6 +204,7 @@
 
   document.addEventListener("DOMContentLoaded", function(event) {
     filters = document.querySelector(".categories-picker");
+    resultsContainer = document.querySelector(".results");
     initMap();
   });
 
