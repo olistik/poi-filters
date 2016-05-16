@@ -83,11 +83,10 @@
     if (Object.keys(enabled).length > 0) {
       map.fitBounds(featureLayer.getBounds());
     } else {
-      map.panTo({
+      map.setView({
         lat: viewSettings.latitude,
         lon: viewSettings.longitude
-      });
-      map.setZoom(viewSettings.zoomLevel);
+      }, viewSettings.zoomLevel);
     }
     updateList();
   }
