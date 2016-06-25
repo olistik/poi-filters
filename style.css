@@ -24,13 +24,14 @@ html, body {
 .map-viewer .categories-picker {
 }
 
+.map-viewer .map { width: 50%; }
+.categories-results { width: 50%;}
+
 .map-viewer .map {
-  flex: 11;
   border-right: 2px solid #ccc;
 }
 
 .map-viewer .categories-picker {
-  min-width: 120px;
   padding: 1rem;
   border-bottom: 2px solid #ccc;
 }
@@ -67,7 +68,6 @@ html, body {
 }
 
 .categories-results {
-  min-width: 300px;
   overflow-y: scroll;
   height: 100%;
 }
