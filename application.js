@@ -81,7 +81,9 @@
     });
     createCustomTooltips();
     if (Object.keys(enabled).length > 0) {
-      map.fitBounds(featureLayer.getBounds());
+      map.fitBounds(featureLayer.getBounds(), {
+        padding: [20, 20]
+      });
     } else {
       map.setView({
         lat: viewSettings.latitude,
@@ -187,7 +189,9 @@
     fetchDataset(datasetUrl, function(json) {
       geojsonData = json;
       featureLayer.setGeoJSON(geojsonData);
-      map.fitBounds(featureLayer.getBounds());
+      map.fitBounds(featureLayer.getBounds(), {
+        padding: [20, 20]
+      });
       createCustomTooltips();
       createFilters();
       updateList();
